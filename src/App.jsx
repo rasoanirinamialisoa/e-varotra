@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Index from "./pages/Index";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => (
+  <BrowserRouter>
+    <AnimatePresence mode="wait">
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+      </Routes>
+    </AnimatePresence>
+  </BrowserRouter>
+);
 
-  return (
-    <>    
-      <h1>Hello</h1>
-    </>
-  )
-}
-
-export default App
+export default App;
